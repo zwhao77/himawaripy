@@ -56,7 +56,7 @@ def download_chunk(args):
     global counter
 
     x, y, latest, level = args
-    url_format = "https://himawari8-dl.nict.go.jp/himawari8/img/D531106/{}d/{}/{}_{}_{}.png"
+    url_format = "https://anzu.shinshu-u.ac.jp/himawari8/img/D531106/{}d/{}/{}_{}_{}.png"
     url = url_format.format(level, WIDTH, strftime("%Y/%m/%d/%H%M%S", latest), x, y)
 
     tiledata = download(url)
@@ -184,7 +184,7 @@ def thread_main(args):
     level = args.level  # since we are going to use it a lot of times
 
     print("Updating...")
-    latest_json = download("https://himawari8-dl.nict.go.jp/himawari8/img/D531106/latest.json")
+    latest_json = download("https://anzu.shinshu-u.ac.jp/himawari/img/D531106/latest.json")
     latest = strptime(json.loads(latest_json.decode("utf-8"))["date"], "%Y-%m-%d %H:%M:%S")
 
     print("Latest version: {} GMT.".format(strftime("%Y/%m/%d %H:%M:%S", latest)))
